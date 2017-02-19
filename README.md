@@ -3,3 +3,6 @@ As part of the [Spring '16 release](https://releasenotes.docs.salesforce.com/en-
 
 ## Technical Details
 `SandboxTaskAutomation.cls` leverages the [SandboxPostCopy interface](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_interface_System_SandboxPostCopy.htm) to call methods from the `runApexClass` method. The one method that we have defined is the `resetActiveAdminUserEmails`, which retrieves any active system administrators and updates the email address for that user if their email address contains **example.com**.
+
+## TODO: Assert Functionality Works as Expected
+Even though `SandboxTaskAutomation.cls` has 100% coverage from `SandboxTaskAutomationTest.cls`, it does not appear that Salesforce provides a way to assert the actual outcome of logic meets the expected results. If you have an idea of how to properly test this, I'd love a pull request or issue to this repo, or a mention [@RogerMitchell](https://www.twitter.com/rogermitchell) on Twitter.
