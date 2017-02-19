@@ -1,0 +1,5 @@
+# Sandbox Post Copy Tasks
+As part of the [Spring '16 release](https://releasenotes.docs.salesforce.com/en-us/spring16/release-notes/rn_deployment_sandbox_postcopy_script.htm), Salesforce allows admins to run a block of Apex after a sandbox copy has finished. This is particularly helpful for automating tasks in Developer and Developer Pro sandboxes, which both do not feature partial / full data copies from production. But most importantly, there's no need to reset the other system administrators and developers email addresses (provided you run these scripts).
+
+## Technical Details
+`SandboxTaskAutomation.cls` leverages the [SandboxPostCopy interface](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_interface_System_SandboxPostCopy.htm) to call methods from the `runApexClass` method. The one method that we have defined is the `resetActiveAdminUserEmails`, which retrieves any active system administrators and updates the email address for that user if their email address contains **example.com**.
